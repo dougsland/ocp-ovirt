@@ -19,17 +19,16 @@ package main
 import (
 	"fmt"
 	"time"
-	"reflect"
 	ovirtsdk4 "github.com/ovirt/go-ovirt"
 )
 
 func main() {
-	inputRawURL := "https://foobar.medogz.home/ovirt-engine/api"
+	inputRawURL := "https://foobar.mydomain.home/ovirt-engine/api"
 
 	conn, err := ovirtsdk4.NewConnectionBuilder().
 		URL(inputRawURL).
 		Username("admin@internal").
-		Password("superpass").
+		Password("mysuperpass").
 		Insecure(true).
 		Compress(true).
 		Timeout(time.Second * 10).
@@ -54,7 +53,6 @@ func main() {
                 fmt.Printf("Failed to search dataCenter list, reason: %v\n", err)
                 return
         }
-	fmt.Println(reflect.TypeOf(dcsListResp))
 	dcs := dcsListResp.MustDataCenters()
         for _, dc := range dcs.Slice() {
 		dcService := dataCentersService.DataCenterService(dc.MustId())
