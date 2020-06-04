@@ -24,13 +24,15 @@ import (
 )
 
 func main() {
-	inputRawURL := "https://foobar.mydomain.home/ovirt-engine/api"
-	tag := "tag=cluster-999wh"
+	inputRawURL := "https://engine.medogz.home/ovirt-engine/api"
+	//tag := "tag=cluster-999wh"
+	//tag := "tag=cluster-dwjfv"
+	tag := "tag=cluster-ztnq2"
 
 	conn, err := ovirtsdk4.NewConnectionBuilder().
 		URL(inputRawURL).
 		Username("admin@internal").
-		Password("mysuperpass").
+		Password("redhat").
 		Insecure(true).
 		Compress(true).
 		Timeout(time.Second * 10).
@@ -48,6 +50,7 @@ func main() {
 		}
 	}()
 
+	fmt.Println("looking for vms with tag..")
 	// Get the reference to the "vms" service:
 	vmsService := conn.SystemService().VmsService()
 

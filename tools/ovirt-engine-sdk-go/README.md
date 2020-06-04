@@ -2,6 +2,12 @@
 ```
 $ go get github.com/ovirt/go-ovirt
 ```
+
+2. Go to example dir
+```
+    $ cd network
+```
+
 2. Edit list_networks.go:
 ```
     $ vi list_networks.go
