@@ -1,7 +1,7 @@
 #https://mirror.openshift.com/pub/openshift-v4/x86_64/clients/ocp-dev-preview/latest-4.5/release.txt for master
 #https://mirror.openshift.com/pub/openshift-v4/x86_64/clients/ocp-dev-preview/latest-4.4/release.txt for release-4.4
 
-OPENSHIFT_RELEASE_VERSION=4.5
+OPENSHIFT_RELEASE_VERSION=4.6
 MIRROR="mirror.openshift.com/pub/openshift-v4/x86_64/clients/ocp-dev-preview/latest-${OPENSHIFT_RELEASE_VERSION}"
 export OPENSHIFT_INSTALL_RELEASE_IMAGE_OVERRIDE="$(curl -l "${MIRROR}/${OPENSHIFT_RELEASE_VERSION}/release.txt" | sed -n 's/^Pull From: //p')"
 ./bin/openshift-install create cluster --dir=testing --log-level=debug
